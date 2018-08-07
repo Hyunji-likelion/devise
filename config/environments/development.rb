@@ -4,8 +4,12 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  
+  config.action_mailer.default_url_options = { host: 'devise-hyunji5likelion.c9users.io' }
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: ENV["mailgun_key"],
+    domain: ENV["mailgun_domain"],
+  }
   config.cache_classes = false
 
   # Do not eager load code on boot.
