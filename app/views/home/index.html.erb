@@ -1,2 +1,13 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+
+<% if user_signed_in? %>
+  <%= current_user.email %>
+  <!-- <a href="/users/sign_out">로그아웃</a> -->
+
+  <%= link_to '로그아웃', destroy_user_session_url, :method => :delete %>
+  <%= link_to '회원정보수정', edit_user_registration_path %>
+<% else %>
+  <!-- <a href="/users/sign_in">로그인</a> -->
+  <%= link_to '로그인', new_user_session_path %>
+<% end %>
